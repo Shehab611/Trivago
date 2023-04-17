@@ -24,10 +24,13 @@ namespace WindowsFormsApp1
         {
             bool loginCheck = database_Control.CheckOnLogin(txt_email.Text, txt_password.Text);
             int userRole = 0;
+           
+            
             if (loginCheck)
             {
                 userRole = database_Control.GetRole(txt_email.Text);
-
+                User_in_DataBase user = database_Control.GetUserData(txt_email.Text);
+                database_Control.AddUserActivity(user.User_id);
                 switch (userRole)
                 {
                     case 0:
