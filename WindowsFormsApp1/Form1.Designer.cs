@@ -222,7 +222,7 @@
             this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_signup.ForeColor = System.Drawing.Color.Black;
-            this.btn_signup.Location = new System.Drawing.Point(145, 385);
+            this.btn_signup.Location = new System.Drawing.Point(145, 395);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(177, 36);
             this.btn_signup.TabIndex = 15;
