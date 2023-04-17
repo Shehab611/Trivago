@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
             else
             {
                 MessageBox.Show("Invalid Credential!!\nPlease Enter a vaild one", "Opps!!!");
-
+                
             }
 
         }
@@ -64,7 +64,16 @@ namespace WindowsFormsApp1
         {
 
             txt_password.UseSystemPasswordChar = !txt_password.UseSystemPasswordChar;
+          
 
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            signup_form form2 = new signup_form();
+            form2.Tag = this;
+            form2.Show(this);
+            Close();
         }
     }
 }
