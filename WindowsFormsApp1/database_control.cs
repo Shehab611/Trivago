@@ -138,5 +138,12 @@ namespace WindowsFormsApp1
 
 
         }
+
+        public void AddUser()
+        {
+
+
+
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,51 +35,90 @@ namespace WindowsFormsApp1
 
         private void btn_finish_Click(object sender, EventArgs e)
         {
-            bool isEmailExist=database_Control.CheckIfEmailExist(txt_email_signup.Text);
-            bool isPhoneExist=database_Control.CheckIfPhoneExist(txt_phone.Text);
-
-            if (!isEmailExist && !isPhoneExist)
+            bool isEmailExist = database_Control.CheckIfEmailExist(txt_email_signup.Text);
+            bool isPhoneExist = database_Control.CheckIfPhoneExist(txt_phone.Text);
+            bool isEmail = false;
+            try
             {
-                //insert to users
-                var form1 = (login)Tag;
-                form1.Show();
-                Close();
+                MailAddress m = new MailAddress(txt_email_signup.Text);
+                isEmail = true;
             }
-            else {
+            catch (Exception)
+            {
+                isEmail = false;
 
-                if (isEmailExist)
-                {
-                    MessageBox.Show("Email is used before!!\nPlease Enter another one", "Opps!!!");
-                }
-                if (isPhoneExist)
-                {
 
-                    MessageBox.Show("Phone Number is used before!!\nPlease Enter another one", "Opps!!!");
-                }
             }
-           
-             
+            if (isEmail)
+            {
+
+                if (!isEmailExist && !isPhoneExist)
+                {
+                    //insert to users
+                    if (txt_pass_signup.TextLength < 6)
+                    {
+
+                        MessageBox.Show("Password is less than 6 chars!!\nPlease make it at least 6", "Opps!!!");
+
+                    }
+                    else
+                    {
+                        if (txt_pass_signup.Text == txt_pass_conf_signup.Text)
+                        {
+
+                            var form1 = (login)Tag;
+                            form1.Show();
+                            Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password is not the same!!\nPlease retype it", "Opps!!!");
+
+                        }
+                    }
+
+                }
+                else
+                {
+
+                    if (isEmailExist)
+                    {
+                        MessageBox.Show("Email is used before!!\nPlease Enter another one", "Opps!!!");
+                    }
+                    if (isPhoneExist)
+                    {
+
+                        MessageBox.Show("Phone Number is used before!!\nPlease Enter another one", "Opps!!!");
+                    }
+                }
+
+
+
+            }
+
+
         }
 
         private void btn_prsonal_info_Click(object sender, EventArgs e)
         {
             pnl_address.Width = pnl_login_info.Width = 0;
             line1.BackColor = line2.BackColor = Color.FromArgb(167, 167, 167);
-           
+
         }
 
         private void btn_address_Click(object sender, EventArgs e)
         {
             pnl_address.Width = pnl_main.Width;
             pnl_personal_info.Width = pnl_login_info.Width = 0;
-           line1.BackColor = Color.FromArgb(59, 249, 81);
+            line1.BackColor = Color.FromArgb(59, 249, 81);
             line2.BackColor = Color.FromArgb(167, 167, 167);
         }
 
         private void btn_login_info_Click(object sender, EventArgs e)
         {
             pnl_login_info.Width = pnl_main.Width;
-            line2.BackColor=Color.FromArgb(59, 249, 81);
+            line2.BackColor = Color.FromArgb(59, 249, 81);
         }
 
         private void picBox_visabilty_pass_Click(object sender, EventArgs e)
@@ -91,5 +131,5 @@ namespace WindowsFormsApp1
             txt_pass_conf_signup.UseSystemPasswordChar = !txt_pass_conf_signup.UseSystemPasswordChar;
         }
     }
-    
+
 }
