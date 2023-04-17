@@ -76,5 +76,7 @@ namespace WindowsFormsApp1
             form2.Show(this);
             Hide();
         }
+
+    
     }
 }

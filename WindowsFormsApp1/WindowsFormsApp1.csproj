@@ -393,6 +393,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Form.Designer.cs">
+      <DependentUpon>Admin Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="database_control.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -408,6 +414,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin Form.resx">
+      <DependentUpon>Admin Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

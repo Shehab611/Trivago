@@ -208,6 +208,7 @@
             this.pnl_personal_info.Name = "pnl_personal_info";
             this.pnl_personal_info.Size = new System.Drawing.Size(417, 381);
             this.pnl_personal_info.TabIndex = 2;
+            this.pnl_personal_info.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_personal_info_Paint);
             // 
             // btn_go_page_2
             // 

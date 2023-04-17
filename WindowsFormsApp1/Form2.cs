@@ -165,6 +165,11 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void pnl_personal_info_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
