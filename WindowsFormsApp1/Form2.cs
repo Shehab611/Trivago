@@ -119,7 +119,7 @@ namespace WindowsFormsApp1
 
             }
 
-
+            //add else
         }
 
         private void Btn_prsonal_info_Click(object sender, EventArgs e)
