@@ -34,23 +34,23 @@
             this.panel_login = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_email = new System.Windows.Forms.Panel();
+            this.signUp_panel = new System.Windows.Forms.Panel();
+            this.btn_signup = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.picBox_visabilty = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel_email = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.signUp_panel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_signup = new System.Windows.Forms.Button();
             this.panel_login.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel_email.SuspendLayout();
+            this.signUp_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_visabilty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel_email.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.signUp_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_login
@@ -125,6 +125,66 @@
             this.panel1.Size = new System.Drawing.Size(563, 46);
             this.panel1.TabIndex = 13;
             // 
+            // panel_email
+            // 
+            this.panel_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.panel_email.Controls.Add(this.pictureBox2);
+            this.panel_email.Controls.Add(this.txt_email);
+            this.panel_email.Location = new System.Drawing.Point(6, 206);
+            this.panel_email.Name = "panel_email";
+            this.panel_email.Size = new System.Drawing.Size(566, 46);
+            this.panel_email.TabIndex = 11;
+            // 
+            // signUp_panel
+            // 
+            this.signUp_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.signUp_panel.Controls.Add(this.btn_signup);
+            this.signUp_panel.Controls.Add(this.label2);
+            this.signUp_panel.Controls.Add(this.label3);
+            this.signUp_panel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.signUp_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.signUp_panel.Location = new System.Drawing.Point(575, 0);
+            this.signUp_panel.Name = "signUp_panel";
+            this.signUp_panel.Size = new System.Drawing.Size(468, 540);
+            this.signUp_panel.TabIndex = 14;
+            // 
+            // btn_signup
+            // 
+            this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_signup.ForeColor = System.Drawing.Color.Black;
+            this.btn_signup.Location = new System.Drawing.Point(145, 395);
+            this.btn_signup.Name = "btn_signup";
+            this.btn_signup.Size = new System.Drawing.Size(177, 36);
+            this.btn_signup.TabIndex = 15;
+            this.btn_signup.Text = "Sign up";
+            this.btn_signup.UseVisualStyleBackColor = false;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.label3.Location = new System.Drawing.Point(52, 206);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(394, 74);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Sign up and discover a new and exclusive hotels offers";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.label2.Location = new System.Drawing.Point(91, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(314, 64);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "New Here?";
+            // 
             // picBox_visabilty
             // 
             this.picBox_visabilty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
@@ -148,16 +208,6 @@
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
-            // panel_email
-            // 
-            this.panel_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
-            this.panel_email.Controls.Add(this.pictureBox2);
-            this.panel_email.Controls.Add(this.txt_email);
-            this.panel_email.Location = new System.Drawing.Point(6, 206);
-            this.panel_email.Name = "panel_email";
-            this.panel_email.Size = new System.Drawing.Size(566, 46);
-            this.panel_email.TabIndex = 11;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
@@ -180,55 +230,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // signUp_panel
-            // 
-            this.signUp_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.signUp_panel.Controls.Add(this.btn_signup);
-            this.signUp_panel.Controls.Add(this.label3);
-            this.signUp_panel.Controls.Add(this.label2);
-            this.signUp_panel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.signUp_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
-            this.signUp_panel.Location = new System.Drawing.Point(575, 0);
-            this.signUp_panel.Name = "signUp_panel";
-            this.signUp_panel.Size = new System.Drawing.Size(468, 540);
-            this.signUp_panel.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
-            this.label2.Location = new System.Drawing.Point(91, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(314, 64);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "New Here?";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
-            this.label3.Location = new System.Drawing.Point(52, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(394, 74);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Sign up and discover a new and exclusive hotels offers";
-            // 
-            // btn_signup
-            // 
-            this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_signup.ForeColor = System.Drawing.Color.Black;
-            this.btn_signup.Location = new System.Drawing.Point(145, 395);
-            this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(177, 36);
-            this.btn_signup.TabIndex = 15;
-            this.btn_signup.Text = "Sign up";
-            this.btn_signup.UseVisualStyleBackColor = false;
-            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,14 +243,14 @@
             this.panel_login.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_visabilty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel_email.ResumeLayout(false);
             this.panel_email.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.signUp_panel.ResumeLayout(false);
             this.signUp_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_visabilty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
