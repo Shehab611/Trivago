@@ -37,15 +37,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.Licensing.5.0.0\lib\net40\Bunifu.Licensing.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.6.1.0\lib\net40\Bunifu.UI.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.1.5.3.1.0.0\lib\net40\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.5.7.0\lib\netstandard1.0\Costura.dll</HintPath>
     </Reference>
@@ -61,14 +52,8 @@
     <Reference Include="Fizzler, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
       <HintPath>..\packages\Fizzler.1.3.0\lib\netstandard2.0\Fizzler.dll</HintPath>
     </Reference>
-    <Reference Include="FontAwesome.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.WinForms.1.0.5\lib\net472\FontAwesome.WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="GumroadLicensing, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GumroadLicensing.2.0.5\lib\net45\GumroadLicensing.dll</HintPath>
-    </Reference>
-    <Reference Include="Kimtoo.Wizard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kimtoo.Wizard.1.0.1\lib\net472\Kimtoo.Wizard.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -378,10 +363,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
