@@ -17,18 +17,23 @@ namespace WindowsFormsApp1
         public login()
         {
             InitializeComponent();
+
+
+
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            bool loginCheck=database_Control.CheckOnLogin(txt_email.Text,txt_password.Text);
+            bool loginCheck = database_Control.CheckOnLogin(txt_email.Text, txt_password.Text);
             int userRole = 0;
             if (loginCheck)
             {
                 userRole = database_Control.GetRole(txt_email.Text);
 
-                switch (userRole) {
-                    case 0: {
+                switch (userRole)
+                {
+                    case 0:
+                        {
 
                             //navigate to Customer Form
                             break;
@@ -47,15 +52,18 @@ namespace WindowsFormsApp1
                 }
 
             }
-            else {
-                MessageBox.Show("Invalid Credential!!\nPlease Enter a vaild one","Opps!!!");
-            
+            else
+            {
+                MessageBox.Show("Invalid Credential!!\nPlease Enter a vaild one", "Opps!!!");
+
             }
 
         }
 
-        private void login_Load(object sender, EventArgs e)
+        private void picBox_visabilty_Click(object sender, EventArgs e)
         {
+
+            txt_password.UseSystemPasswordChar = !txt_password.UseSystemPasswordChar;
 
         }
     }

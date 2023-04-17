@@ -134,6 +134,27 @@
   <ItemGroup>
     <None Include="Resources\images-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visibility.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
