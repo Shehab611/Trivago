@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class login : Form
+    public partial class login_form : Form
     {
         Database_control database_Control = new Database_control();
-        public login()
+        public login_form()
         {
             InitializeComponent();
 
