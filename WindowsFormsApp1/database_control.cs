@@ -14,12 +14,14 @@ namespace WindowsFormsApp1
     internal class Database_control
     {
         static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
-        static OracleConnection conn=new OracleConnection(ordb);
-       
-        public bool CheckOnLogin(string email,string password) {
+        static OracleConnection conn = new OracleConnection(ordb);
+
+        public bool CheckOnLogin(string email, string password)
+        {
             conn.Open();
-            try {
-                 OracleCommand cmd = new OracleCommand();
+            try
+            {
+                OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "select email,pass,role_id from userss where email =:email";
                 cmd.CommandType = CommandType.Text;
@@ -46,16 +48,17 @@ namespace WindowsFormsApp1
             }
             catch (Exception)
             {
-               
-               
+
+
                 conn.Close();
                 return false;
             }
-          
+
         }
 
-        public int GetRole(string email) {
-             OracleCommand cmd = new OracleCommand();
+        public int GetRole(string email)
+        {
+            OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
             cmd.Connection = conn;
@@ -68,6 +71,72 @@ namespace WindowsFormsApp1
             cmd.Cancel();
             conn.Close();
             return x;
+        }
+
+        public bool CheckIfEmailExist(string email)
+        {
+
+            conn.Open();
+            try
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select email from userss where email =:email";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("email", email);
+                OracleDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                String x = dr[0].ToString();
+                conn.Close();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+
+                conn.Close();
+                return false;
+            }
+
+
+        }
+        public bool CheckIfPhoneExist(string phoneNumber)
+        {
+
+            conn.Open();
+            try
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select phone from userss";
+                cmd.CommandType = CommandType.Text;
+
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    if (dr[0].ToString() == phoneNumber)
+                    {
+
+                        return true;
+                    }
+
+
+                }
+                conn.Close();
+                return false;
+
+            }
+            catch (Exception)
+            {
+
+
+                conn.Close();
+                return false;
+            }
+
+
         }
     }
 }

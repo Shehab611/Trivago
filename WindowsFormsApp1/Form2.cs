@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class signup_form : Form
     {
+        Database_control database_Control = new Database_control();
         public signup_form()
         {
             InitializeComponent();
@@ -33,7 +34,21 @@ namespace WindowsFormsApp1
 
         private void btn_finish_Click(object sender, EventArgs e)
         {
+            bool isEmailExist=database_Control.CheckIfEmailExist(txt_email_signup.Text);
+            bool isPhoneExist=database_Control.CheckIfPhoneExist(txt_phone.Text);
+            if (isEmailExist) {
+                MessageBox.Show("Email is used before!!\nPlease Enter another one", "Opps!!!");
+            }
+            if (isPhoneExist) {
 
+                MessageBox.Show("Phone Number is used before!!\nPlease Enter another one", "Opps!!!");
+            }
+
+
+           
+             var form1 = (login)Tag;
+            form1.Show();
+            Close();
         }
 
         private void btn_prsonal_info_Click(object sender, EventArgs e)
