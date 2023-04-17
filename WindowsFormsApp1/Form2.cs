@@ -75,7 +75,6 @@ namespace WindowsFormsApp1
                                 var form1 = (login_form)Tag;
                                 form1.Show();
                                 Close();
-
                             }
                             else if (rdb_hotel.Checked)
                             {
@@ -159,6 +158,11 @@ namespace WindowsFormsApp1
         {
             var form1 = (login_form)Tag;
             form1.Show();
+
+        }
+
+        private void signup_form_Load(object sender, EventArgs e)
+        {
 
         }
     }
