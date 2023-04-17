@@ -70,10 +70,11 @@ namespace WindowsFormsApp1
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
+
             signup_form form2 = new signup_form();
             form2.Tag = this;
             form2.Show(this);
-            Close();
+            Hide();
         }
     }
 }
