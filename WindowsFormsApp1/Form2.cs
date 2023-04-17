@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class signup_form : Form
     {
-        Database_control database_Control = new Database_control();
+        readonly Database_control database_Control = new Database_control();
         public signup_form()
         {
             InitializeComponent();
@@ -38,9 +38,7 @@ namespace WindowsFormsApp1
         {
             bool isEmailExist = database_Control.CheckIfEmailExist(txt_email_signup.Text);
             bool isPhoneExist = database_Control.CheckIfPhoneExist(txt_phone.Text);
-            bool isEmail = false;
-
-
+            bool isEmail;
             try
             {
                 MailAddress m = new MailAddress(txt_email_signup.Text);
