@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -68,16 +69,30 @@ namespace WindowsFormsApp1
                         if (txt_pass_signup.Text == txt_pass_conf_signup.Text)
                         {
 
-
-                            var form1 = (login)Tag;
-                            form1.Show();
-                            Close();
                             if (rdb_admin.Checked)
                             {
                                 database_Control.AddUser(new User_in_DataBase(txt_email_signup.Text, txt_pass_signup.Text, txt_f_name.Text, txt_L_name.Text, 1, txt_phone.Text, txt_ssn.Text));
-                                var form1 = (login)Tag;
+                                var form1 = (login_form)Tag;
                                 form1.Show();
                                 Close();
+
+                            }
+                            else if (rdb_hotel.Checked)
+                            {
+                                database_Control.AddUser(new User_in_DataBase(txt_email_signup.Text, txt_pass_signup.Text, txt_f_name.Text, txt_L_name.Text, 2, txt_phone.Text, txt_ssn.Text));
+                                var form1 = (login_form)Tag;
+                                form1.Show();
+                                Close();
+                            }
+                            else if (rdb_customer.Checked)
+                            {
+                                database_Control.AddUser(new User_in_DataBase(txt_email_signup.Text, txt_pass_signup.Text, txt_f_name.Text, txt_L_name.Text, 0, txt_phone.Text, txt_ssn.Text));
+                                var form1 = (login_form)Tag;
+                                form1.Show();
+                                Close();
+                            }
+                            else MessageBox.Show("You Must choose your role!!", "Opps!!!");
+
 
                         }
                         else
@@ -138,6 +153,13 @@ namespace WindowsFormsApp1
         private void picBox_visabilty_pass_conf_Click(object sender, EventArgs e)
         {
             txt_pass_conf_signup.UseSystemPasswordChar = !txt_pass_conf_signup.UseSystemPasswordChar;
+        }
+
+        private void signup_form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var form1 = (login_form)Tag;
+            form1.Show();
+
         }
     }
 
