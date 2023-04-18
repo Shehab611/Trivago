@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -15,11 +16,17 @@ namespace WindowsFormsApp1
 {
     internal class Database_control
     {
-        static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
-        static OracleConnection conn = new OracleConnection(ordb);
-
+        //static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
+        string ordb = @"data source=localhost:1521/orcl; user id=team132; password=team132;";
+        private OracleConnection conn;
+        private string cnststr;
+        private string cmdstr;
+        OracleDataAdapter adapter;
+        OracleCommandBuilder builder;
+        DataSet dataSet;
         public bool CheckOnLogin(string email, string password)
         {
+            conn = new OracleConnection(ordb);
             conn.Open();
             try
             {
@@ -30,21 +37,20 @@ namespace WindowsFormsApp1
                 cmd.Parameters.Add("email", email);
 
                 OracleDataReader dr = cmd.ExecuteReader();
-                dr.Read();
-                if (dr[1].ToString() == password)
-                {
-                    dr.Close();
-                    cmd.Cancel();
-                    conn.Close();
-                    return true;
+                if (dr.Read()) {
+                    if (dr[1].ToString() == password)
+                    {
+                        dr.Close();
+                        cmd.Cancel();
+                        conn.Close();
+                        return true;
+                    }
                 }
-                else
-                {
-                    dr.Close();
-                    cmd.Cancel();
-                    conn.Close();
-                    return false;
-                }
+                dr.Close();
+                cmd.Cancel();
+                conn.Close();
+                return false;
+                
 
 
             }
@@ -213,10 +219,24 @@ namespace WindowsFormsApp1
 
         }
 
+        public DataTable getAllUsers()
+        {
+            cnststr = "User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
+            cmdstr = "select * from userss";
+            adapter = new OracleDataAdapter(cmdstr, cnststr);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
 
-
-
-
+        public DataTable getPendingOffers()
+        {   
+            cmdstr = "select * from USERSS";
+            adapter = new OracleDataAdapter(cmdstr, cnststr);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
 
     }
 
