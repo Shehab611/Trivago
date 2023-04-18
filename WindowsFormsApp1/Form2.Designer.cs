@@ -127,7 +127,7 @@
             this.btn_login_info.Text = "Login Information";
             this.btn_login_info.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_login_info.UseVisualStyleBackColor = true;
-            this.btn_login_info.Click += new System.EventHandler(this.btn_login_info_Click);
+            this.btn_login_info.Click += new System.EventHandler(this.Btn_login_info_Click);
             // 
             // imageList1
             // 
@@ -156,7 +156,7 @@
             this.btn_address.Text = "Address";
             this.btn_address.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_address.UseVisualStyleBackColor = true;
-            this.btn_address.Click += new System.EventHandler(this.btn_address_Click);
+            this.btn_address.Click += new System.EventHandler(this.Btn_address_Click);
             // 
             // btn_prsonal_info
             // 
@@ -177,7 +177,7 @@
             this.btn_prsonal_info.Text = "Personal Information";
             this.btn_prsonal_info.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_prsonal_info.UseVisualStyleBackColor = true;
-            this.btn_prsonal_info.Click += new System.EventHandler(this.btn_prsonal_info_Click);
+            this.btn_prsonal_info.Click += new System.EventHandler(this.Btn_prsonal_info_Click);
             // 
             // pnl_main
             // 
@@ -222,7 +222,7 @@
             this.btn_go_page_2.TabIndex = 25;
             this.btn_go_page_2.Text = "Next";
             this.btn_go_page_2.UseVisualStyleBackColor = false;
-            this.btn_go_page_2.Click += new System.EventHandler(this.btn_go_page_2_Click);
+            this.btn_go_page_2.Click += new System.EventHandler(this.Btn_go_page_2_Click);
             // 
             // txt_phone
             // 
@@ -343,7 +343,7 @@
             this.btn_go_page_3.TabIndex = 25;
             this.btn_go_page_3.Text = "Next";
             this.btn_go_page_3.UseVisualStyleBackColor = false;
-            this.btn_go_page_3.Click += new System.EventHandler(this.btn_go_page_3_Click);
+            this.btn_go_page_3.Click += new System.EventHandler(this.Btn_go_page_3_Click);
             // 
             // textBox1
             // 
@@ -424,7 +424,7 @@
             this.picBox_visabilty_pass_conf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBox_visabilty_pass_conf.TabIndex = 35;
             this.picBox_visabilty_pass_conf.TabStop = false;
-            this.picBox_visabilty_pass_conf.Click += new System.EventHandler(this.picBox_visabilty_pass_conf_Click);
+            this.picBox_visabilty_pass_conf.Click += new System.EventHandler(this.PicBox_visabilty_pass_conf_Click);
             // 
             // picBox_visabilty_pass
             // 
@@ -436,7 +436,7 @@
             this.picBox_visabilty_pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBox_visabilty_pass.TabIndex = 34;
             this.picBox_visabilty_pass.TabStop = false;
-            this.picBox_visabilty_pass.Click += new System.EventHandler(this.picBox_visabilty_pass_Click);
+            this.picBox_visabilty_pass.Click += new System.EventHandler(this.PicBox_visabilty_pass_Click);
             // 
             // btn_finish
             // 
@@ -450,7 +450,7 @@
             this.btn_finish.TabIndex = 33;
             this.btn_finish.Text = "Finish";
             this.btn_finish.UseVisualStyleBackColor = false;
-            this.btn_finish.Click += new System.EventHandler(this.btn_finish_Click);
+            this.btn_finish.Click += new System.EventHandler(this.Btn_finish_Click);
             // 
             // rdb_admin
             // 
@@ -577,8 +577,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "signup_form";
             this.Text = "Sign Up";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.signup_form_FormClosing);
-            this.Load += new System.EventHandler(this.signup_form_Load);
+
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Signup_form_FormClosing);
+
             this.panel1.ResumeLayout(false);
             this.pnl_main.ResumeLayout(false);
             this.pnl_personal_info.ResumeLayout(false);

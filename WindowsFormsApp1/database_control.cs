@@ -80,7 +80,40 @@ namespace WindowsFormsApp1
             conn.Close();
             return x;
         }
+       
+        public User_in_DataBase GetUserData(string email) {
+            User_in_DataBase user = new User_in_DataBase();
+            conn.Open();
+            try
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select * from userss where email =:email";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("email", email);
+                OracleDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                user.User_id = int.Parse(dr[0].ToString());
+                user.Ssn = dr[1].ToString();
+                user.Email = dr[2].ToString();
+                user.Pass = dr[3].ToString();
+                user.F_name = dr[4].ToString();
+                user.L_name = dr[5].ToString();
+                user.Role_id = int.Parse(dr[6].ToString());
+                user.Phone = dr[7].ToString();
+                conn.Close();
 
+                return user;
+            }
+            catch (Exception)
+            {
+
+
+                conn.Close();
+               
+            }
+            return user;
+        }
         public bool CheckIfEmailExist(string email)
         {
 
@@ -109,6 +142,7 @@ namespace WindowsFormsApp1
 
 
         }
+
         public bool CheckIfPhoneExist(string phoneNumber)
         {
 
@@ -156,17 +190,35 @@ namespace WindowsFormsApp1
             cmd.Connection = conn;
             cmd.CommandText = "insert into userss values(users_id_seq.nextval,:ssn,:email,:pass,:f_name,:l_name,:role_id,:phone)";
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("ssn", user_In_DataBase.ssn);
-            cmd.Parameters.Add("email", user_In_DataBase.email);
-            cmd.Parameters.Add("pass", user_In_DataBase.pass);
-            cmd.Parameters.Add("f_name", user_In_DataBase.f_name);
-            cmd.Parameters.Add("l_name", user_In_DataBase.l_name);
-            cmd.Parameters.Add("role_id", user_In_DataBase.role_id);
-            cmd.Parameters.Add("phone", user_In_DataBase.phone);
+            cmd.Parameters.Add("ssn", user_In_DataBase.Ssn);
+            cmd.Parameters.Add("email", user_In_DataBase.Email);
+            cmd.Parameters.Add("pass", user_In_DataBase.Pass);
+            cmd.Parameters.Add("f_name", user_In_DataBase.F_name);
+            cmd.Parameters.Add("l_name", user_In_DataBase.L_name);
+            cmd.Parameters.Add("role_id", user_In_DataBase.Role_id);
+            cmd.Parameters.Add("phone", user_In_DataBase.Phone);
             int r = cmd.ExecuteNonQuery();
             cmd.Cancel();
             conn.Close();
         }
+
+        public void AddUserActivity(int user_id) {
+            //insert into user_activity values(users_activity_id_seq.nextval,'15/9/2022 12:00','cairo',1);
+
+            OracleCommand cmd = new OracleCommand();
+            conn.Open();
+            cmd.Connection = conn;
+            cmd.Connection = conn;
+            cmd.CommandText = "insert into user_activity values(users_activity_id_seq.nextval,:datee,'cairo',:user_id)";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("datee", DateTime.Now.ToString());
+            cmd.Parameters.Add("user_id", user_id);
+            int r = cmd.ExecuteNonQuery();
+            cmd.Cancel();
+            conn.Close();
+
+        }
+
         public DataTable getAllUsers()
         {
             cnststr = "User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
@@ -185,12 +237,68 @@ namespace WindowsFormsApp1
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
+
     }
+
+
+
+
+
+
+
+
+
+
     internal class User_in_DataBase
     {
-        public int role_id;
-        public string email, pass, f_name, l_name, phone, ssn;
+        private int role_id,user_id;
+        private string email, pass, f_name, l_name, phone, ssn;
 
+        public int User_id
+        {
+            get { return user_id; }
+            set { user_id = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        public string Pass
+        {
+            get { return pass; }
+            set { pass = value; }
+        }
+
+        public string F_name
+        {
+            get { return f_name; }
+            set { f_name = value; }
+        }
+        public string L_name
+        {
+            get { return l_name; }
+            set { l_name = value; }
+        }
+        public string Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
+        public string Ssn
+        {
+            get { return ssn; }
+            set { ssn = value; }
+        }
+        public int Role_id
+        {
+            get { return role_id; }
+            set { role_id = value; }
+        }
+
+        public User_in_DataBase() { }
+        
         public User_in_DataBase(string email, string pass, string f_name, string l_name, int role_id, string phone, string ssn)
         {
 
