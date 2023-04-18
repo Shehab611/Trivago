@@ -117,8 +117,14 @@ namespace WindowsFormsApp1
 
 
             }
+            else
+            {
+                MessageBox.Show("The Email is Not Valid!!\nPlease Enter a Valid one", "Opps!!!");
 
-            //add else
+
+
+
+            }
         }
 
         private void Btn_prsonal_info_Click(object sender, EventArgs e)
