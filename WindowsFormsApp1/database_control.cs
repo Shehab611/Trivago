@@ -16,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 namespace WindowsFormsApp1
 {
     internal class Database_control
-
+        //
     {
     //mohand connection string
         static string ordb = @"Data source=localhost:1521/orcl;User Id=scott;Password=tiger;";
