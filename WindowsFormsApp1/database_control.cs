@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
     {
     
-        static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
+        static string ordb = @"Data source=localhost:1521/orcl;User Id=scott;Password=tiger;";
        
         private OracleConnection conn=new OracleConnection(ordb);
 
