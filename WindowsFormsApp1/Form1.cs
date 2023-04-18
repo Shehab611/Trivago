@@ -84,6 +84,9 @@ namespace WindowsFormsApp1
             Hide();
         }
 
-    
+        private void panel_login_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

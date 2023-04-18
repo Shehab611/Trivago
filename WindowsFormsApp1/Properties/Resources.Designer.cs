@@ -123,6 +123,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2023_04_18_122850 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2023-04-18 122850", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap visibility {
             get {
                 object obj = ResourceManager.GetObject("visibility", resourceCulture);

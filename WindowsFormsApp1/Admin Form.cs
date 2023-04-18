@@ -50,5 +50,10 @@ namespace WindowsFormsApp1
             var form1 = (login_form)Tag;
            form1.Close();
         }
+
+        private void AllUsersTab_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

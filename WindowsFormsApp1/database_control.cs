@@ -202,6 +202,7 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
+
         public void AddUserActivity(int user_id) {
             //insert into user_activity values(users_activity_id_seq.nextval,'15/9/2022 12:00','cairo',1);
 
@@ -237,9 +238,19 @@ namespace WindowsFormsApp1
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
-
+        public  String Show_review(int Hotel_id)
+        {
+            String DESCRIBTION="";
+            OracleCommand cmd = new OracleCommand();
+            conn.Open();
+            cmd.CommandText = "Get_DESCRIBTION";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("DESCRIBTION", OracleDbType.Varchar2, ParameterDirection.Output);
+            cmd.ExecuteNonQuery();
+            return DESCRIBTION;
+        }
     }
-
+  
 
 
 
