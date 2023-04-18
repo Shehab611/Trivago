@@ -39,6 +39,14 @@ namespace WindowsFormsApp1
                     case 1:
                         {
                             //navigate to Admin Form
+
+                           Admin_Form form2 = new Admin_Form
+                            {
+                                Tag = this
+                            };
+                          
+                            form2.Show();
+                            Hide();
                             break;
                         }
                     case 2:
@@ -68,7 +76,6 @@ namespace WindowsFormsApp1
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
-
             signup_form form2 = new signup_form
             {
                 Tag = this
@@ -76,5 +83,7 @@ namespace WindowsFormsApp1
             form2.Show(this);
             Hide();
         }
+
+    
     }
 }
