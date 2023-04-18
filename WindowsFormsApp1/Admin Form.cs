@@ -55,5 +55,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void usersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -40,11 +40,11 @@ namespace WindowsFormsApp1
                         {
                             //navigate to Admin Form
 
-                           Admin_Form form2 = new Admin_Form
+                            Admin_Form form2 = new Admin_Form
                             {
                                 Tag = this
                             };
-                          
+
                             form2.Show();
                             Hide();
                             break;
@@ -59,8 +59,8 @@ namespace WindowsFormsApp1
                             form2.Show();
                             Hide();
                             break;
-                        
-                }
+
+                        }
 
                 }
 
@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
             else
             {
                 MessageBox.Show("Invalid Credential!!\nPlease Enter a vaild one", "Opps!!!");
-                
+
             }
 
         }
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
         {
 
             txt_password.UseSystemPasswordChar = !txt_password.UseSystemPasswordChar;
-          
+
 
         }
 

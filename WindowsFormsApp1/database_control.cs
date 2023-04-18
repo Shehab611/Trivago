@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -16,9 +17,9 @@ namespace WindowsFormsApp1
 {
     internal class Database_control
     {
-        //static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
-        string ordb = @"data source=localhost:1521/orcl; user id=team132; password=team132;";
-        private OracleConnection conn;
+        static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
+       
+        private OracleConnection conn= new OracleConnection(ordb);
         private string cnststr;
         private string cmdstr;
         OracleDataAdapter adapter;
@@ -26,7 +27,8 @@ namespace WindowsFormsApp1
         DataSet dataSet;
         public bool CheckOnLogin(string email, string password)
         {
-            conn = new OracleConnection(ordb);
+            
+            
             conn.Open();
             try
             {
@@ -240,14 +242,20 @@ namespace WindowsFormsApp1
         }
         public  String Show_review(int Hotel_id)
         {
-            String DESCRIBTION="";
+            
             OracleCommand cmd = new OracleCommand();
             conn.Open();
-            cmd.CommandText = "Get_DESCRIBTION";
+            cmd.CommandText = "DESCRIBTION_info";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("DESCRIBTION", OracleDbType.Varchar2, ParameterDirection.Output);
+            cmd.Parameters.Add("@p_Hotel_id", 123); // Replace "123" with the actual hotel ID
+            // Create an out parameter for the description
+            SqlParameter outParameter = new SqlParameter("@DESCRIBTION_P", SqlDbType.VarChar, 255); // Replace "255" with the maximum length of the description column
+            outParameter.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(outParameter);
             cmd.ExecuteNonQuery();
-            return DESCRIBTION;
+            string description = (string)outParameter.Value;
+            return description;
+            conn.Close();
         }
     }
   

@@ -135,6 +135,7 @@ namespace WindowsFormsApp1
             this.usersGrid.Size = new System.Drawing.Size(1055, 324);
             this.usersGrid.TabIndex = 0;
             this.usersGrid.UseWaitCursor = true;
+            this.usersGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGrid_CellContentClick);
             // 
             // pendingOffersTab
             // 
