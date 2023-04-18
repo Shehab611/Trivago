@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Hotel_Form : Form()
+    public partial class Hotel_Form : Form
     {
         public Hotel_Form()
         {
