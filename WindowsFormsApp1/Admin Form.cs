@@ -31,12 +31,7 @@ namespace WindowsFormsApp1
         {
             if(tabControl1.SelectedTab == AllUsersTab)
             {
-                string cnststr = "User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
-                string cmdstr = "select * from userss";
-                OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, cnststr);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                usersGrid.DataSource =  dataSet.Tables[0];
+                usersGrid.DataSource =  db.getAllUsers();
             }
             else if (tabControl1.SelectedTab == pendingOffersTab)
             {
