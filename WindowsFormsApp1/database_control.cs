@@ -16,10 +16,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 namespace WindowsFormsApp1
 {
     internal class Database_control
+
     {
+    
         static string ordb = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
-       // string ordb = @"data source=localhost:1521/orcl; user id=team132; password=team132;";
-        private OracleConnection conn;
+       
+        private OracleConnection conn=new OracleConnection(ordb);
+
         private string cnststr;
         private string cmdstr;
         OracleDataAdapter adapter;
@@ -27,8 +30,7 @@ namespace WindowsFormsApp1
         DataSet dataSet;
         public bool CheckOnLogin(string email, string password)
         {
-            conn = new OracleConnection(ordb);
-            
+
             conn.Open();
             try
             {
