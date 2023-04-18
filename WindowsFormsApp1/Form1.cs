@@ -40,19 +40,26 @@ namespace WindowsFormsApp1
                         {
                             //navigate to Admin Form
 
-                           Admin_Form form2 = new Admin_Form
+                            Admin_Form form2 = new Admin_Form
                             {
                                 Tag = this
                             };
-                          
+
                             form2.Show();
                             Hide();
                             break;
                         }
                     case 2:
                         {
-                            //navigate to Hotel Form
+                            Hotel_Page form2 = new Hotel_Page
+                            {
+                                Tag = this
+                            };
+
+                            form2.Show();
+                            Hide();
                             break;
+
                         }
 
                 }
@@ -61,7 +68,7 @@ namespace WindowsFormsApp1
             else
             {
                 MessageBox.Show("Invalid Credential!!\nPlease Enter a vaild one", "Opps!!!");
-                
+
             }
 
         }
@@ -70,7 +77,7 @@ namespace WindowsFormsApp1
         {
 
             txt_password.UseSystemPasswordChar = !txt_password.UseSystemPasswordChar;
-          
+
 
         }
 
@@ -84,6 +91,9 @@ namespace WindowsFormsApp1
             Hide();
         }
 
-    
+        private void panel_login_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
