@@ -51,9 +51,16 @@ namespace WindowsFormsApp1
                         }
                     case 2:
                         {
-                            //navigate to Hotel Form
+                            Hotel_Page form2 = new Hotel_Page
+                            {
+                                Tag = this
+                            };
+
+                            form2.Show();
+                            Hide();
                             break;
-                        }
+                        
+                }
 
                 }
 
