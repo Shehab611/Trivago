@@ -25,13 +25,11 @@ namespace WindowsFormsApp1
         //gemi connection string
         static string ordb2 = @"User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
 
-        private OracleConnection conn=new OracleConnection(ordb);
+        private OracleConnection conn=new OracleConnection(ordb2);
 
-        private string cnststr;
-        private string cmdstr;
-        OracleDataAdapter adapter;
-        OracleCommandBuilder builder;
-        DataSet dataSet;
+        
+        
+        
         public bool CheckOnLogin(string email, string password)
 
         {
@@ -231,19 +229,20 @@ namespace WindowsFormsApp1
 
         public DataTable getAllUsers()
         {
-            cnststr = "User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
-            cmdstr = "select * from userss";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
-            dataSet = new DataSet();
+            
+            
+            string cmdstr = "select * from userss";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb2);
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
 
         public DataTable getPendingOffers()
         {   
-            cmdstr = "select * from USERSS";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
-            dataSet = new DataSet();
+            string cmdstr = "select * from offers where state = 0";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb2);
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }

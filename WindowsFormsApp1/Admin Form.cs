@@ -24,16 +24,19 @@ namespace WindowsFormsApp1
 
         private void Admin_Form_Load(object sender, EventArgs e)
         {
-            
+            if (Al.SelectedTab == AllUsersTab)
+            {
+                usersGrid.DataSource = db.getAllUsers();
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedTab == AllUsersTab)
+            if(Al.SelectedTab == AllUsersTab)
             {
                 usersGrid.DataSource =  db.getAllUsers();
             }
-            else if (tabControl1.SelectedTab == pendingOffersTab)
+            else if (Al.SelectedTab == pendingOffersTab)
             {
                 pendingOffersGrid.DataSource = db.getPendingOffers();      
             }
