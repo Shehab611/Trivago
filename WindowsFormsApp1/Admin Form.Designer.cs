@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AllUsersTab = new System.Windows.Forms.TabPage();
             this.deleteBtn = new System.Windows.Forms.Button();
@@ -55,10 +55,10 @@ namespace WindowsFormsApp1
             this.tabControl1.Controls.Add(this.pendingOffersTab);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(1, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1072, 562);
+            this.tabControl1.Size = new System.Drawing.Size(804, 457);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -69,11 +69,10 @@ namespace WindowsFormsApp1
             this.AllUsersTab.Controls.Add(this.userIdLabel);
             this.AllUsersTab.Controls.Add(this.textBox1);
             this.AllUsersTab.Controls.Add(this.usersGrid);
-            this.AllUsersTab.Location = new System.Drawing.Point(4, 25);
-            this.AllUsersTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AllUsersTab.Location = new System.Drawing.Point(4, 22);
             this.AllUsersTab.Name = "AllUsersTab";
-            this.AllUsersTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.AllUsersTab.Size = new System.Drawing.Size(1064, 533);
+            this.AllUsersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.AllUsersTab.Size = new System.Drawing.Size(796, 431);
             this.AllUsersTab.TabIndex = 0;
             this.AllUsersTab.UseVisualStyleBackColor = true;
             this.AllUsersTab.UseWaitCursor = true;
@@ -81,63 +80,61 @@ namespace WindowsFormsApp1
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(497, 342);
-            this.deleteBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteBtn.Location = new System.Drawing.Point(373, 278);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(100, 28);
+            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
             this.deleteBtn.TabIndex = 4;
             this.deleteBtn.Text = "delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.UseWaitCursor = true;
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(373, 341);
-            this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.updateBtn.Location = new System.Drawing.Point(280, 277);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(100, 28);
+            this.updateBtn.Size = new System.Drawing.Size(75, 23);
             this.updateBtn.TabIndex = 3;
             this.updateBtn.Text = "update";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.UseWaitCursor = true;
             // 
             // userIdLabel
             // 
             this.userIdLabel.AutoSize = true;
-            this.userIdLabel.Location = new System.Drawing.Point(41, 348);
-            this.userIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userIdLabel.Location = new System.Drawing.Point(31, 283);
             this.userIdLabel.Name = "userIdLabel";
-            this.userIdLabel.Size = new System.Drawing.Size(47, 16);
+            this.userIdLabel.Size = new System.Drawing.Size(38, 13);
             this.userIdLabel.TabIndex = 2;
             this.userIdLabel.Text = "user id";
+            this.userIdLabel.UseWaitCursor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 345);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(82, 280);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 22);
+            this.textBox1.Size = new System.Drawing.Size(142, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.UseWaitCursor = true;
             // 
             // usersGrid
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.usersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersGrid.Location = new System.Drawing.Point(0, 0);
-            this.usersGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usersGrid.Name = "usersGrid";
             this.usersGrid.RowHeadersWidth = 51;
-            this.usersGrid.Size = new System.Drawing.Size(1055, 324);
+            this.usersGrid.Size = new System.Drawing.Size(791, 263);
             this.usersGrid.TabIndex = 0;
             this.usersGrid.UseWaitCursor = true;
             // 
             // pendingOffersTab
             // 
             this.pendingOffersTab.Controls.Add(this.pendingOffersGrid);
-            this.pendingOffersTab.Location = new System.Drawing.Point(4, 25);
-            this.pendingOffersTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pendingOffersTab.Location = new System.Drawing.Point(4, 22);
             this.pendingOffersTab.Name = "pendingOffersTab";
-            this.pendingOffersTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pendingOffersTab.Size = new System.Drawing.Size(1064, 533);
+            this.pendingOffersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.pendingOffersTab.Size = new System.Drawing.Size(796, 431);
             this.pendingOffersTab.TabIndex = 1;
             this.pendingOffersTab.Text = "Pending Offers";
             this.pendingOffersTab.UseVisualStyleBackColor = true;
@@ -145,20 +142,18 @@ namespace WindowsFormsApp1
             // pendingOffersGrid
             // 
             this.pendingOffersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pendingOffersGrid.Location = new System.Drawing.Point(9, 7);
-            this.pendingOffersGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pendingOffersGrid.Location = new System.Drawing.Point(7, 6);
             this.pendingOffersGrid.Name = "pendingOffersGrid";
             this.pendingOffersGrid.RowHeadersWidth = 51;
-            this.pendingOffersGrid.Size = new System.Drawing.Size(1035, 505);
+            this.pendingOffersGrid.Size = new System.Drawing.Size(776, 410);
             this.pendingOffersGrid.TabIndex = 1;
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1064, 533);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(796, 431);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Users Activity";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -173,11 +168,10 @@ namespace WindowsFormsApp1
             // 
             // Admin_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Admin_Form";
             this.Text = "Admin_Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Admin_Form_FormClosing);
