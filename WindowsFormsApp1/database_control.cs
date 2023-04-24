@@ -247,6 +247,7 @@ namespace WindowsFormsApp1
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
+        //
         public  String Show_review(int Hotel_id)
         {
             
