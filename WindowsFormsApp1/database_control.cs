@@ -29,10 +29,7 @@ namespace WindowsFormsApp1
 
         private OracleConnection conn=new OracleConnection(ordb1);
 
-      
-       
         public bool CheckOnLogin(string email, string password)
-
         {
             // Select rows from DB using bind variables and command parameters
             conn.Open();
@@ -79,7 +76,7 @@ namespace WindowsFormsApp1
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
-            cmd.Connection = conn;
+           
             cmd.CommandText = "get_user_role";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("user_email", email);
@@ -199,7 +196,7 @@ namespace WindowsFormsApp1
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
-            cmd.Connection = conn;
+         
             cmd.CommandText = "insert into userss values(users_id_seq.nextval,:ssn,:email,:pass,:f_name,:l_name,:role_id,:phone)";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("ssn", user_In_DataBase.Ssn);
@@ -214,14 +211,13 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
-
         public void AddUserActivity(int user_id) {
             //insert into user_activity values(users_activity_id_seq.nextval,'15/9/2022 12:00','cairo',1);
 
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
-            cmd.Connection = conn;
+           
             cmd.CommandText = "insert into user_activity values(users_activity_id_seq.nextval,:datee,'cairo',:user_id)";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("datee", DateTime.Now.ToString());
@@ -249,9 +245,10 @@ namespace WindowsFormsApp1
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
-        //
+       
         public DataTable Show_review(int Hotel_id)
         {//Select multiple rows from DB using stored procedures.
+            
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -281,7 +278,23 @@ namespace WindowsFormsApp1
             return dataSet.Tables["Reviews"];
         }
 
-        //add offer
+        public void AddOffer(String describtion,int price,int hotel_id)
+        {
+            //error
+           // insert into offers values(offers_id_seq.nextval,'2 room',1500,2,1);
+            OracleCommand cmd = new OracleCommand();
+            conn.Open();
+            cmd.Connection = conn;
+            cmd.CommandText = "insert into offers values(offers_id_seq.nextval,:desc,:price,:hotel_id,0)";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("desc", describtion);
+            cmd.Parameters.Add("price", price);
+            cmd.Parameters.Add("hotel_id", hotel_id);
+       
+            int r = cmd.ExecuteNonQuery();
+            cmd.Cancel();
+            conn.Close();
+        }
     }
   
 
@@ -293,7 +306,7 @@ namespace WindowsFormsApp1
 
 
 
-    internal class User_in_DataBase
+    public class User_in_DataBase
     {
         private int role_id,user_id;
         private string email, pass, f_name, l_name, phone, ssn;

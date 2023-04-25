@@ -8,16 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace WindowsFormsApp1
 {
     public partial class login_form : Form
     {
         private readonly Database_control database_Control = new Database_control();
+        
+   
         public login_form()
         {
             InitializeComponent();
 
+         
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -43,6 +48,7 @@ namespace WindowsFormsApp1
                             Admin_Form form2 = new Admin_Form
                             {
                                 Tag = this
+                               
                             };
 
                             form2.Show();
@@ -51,7 +57,7 @@ namespace WindowsFormsApp1
                         }
                     case 2:
                         {
-                            Hotel_Page form2 = new Hotel_Page
+                            Hotel_Page form2 = new Hotel_Page(user)
                             {
                                 Tag = this
                             };

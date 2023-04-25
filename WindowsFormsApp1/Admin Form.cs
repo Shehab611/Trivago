@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     public partial class Admin_Form : Form
     {
         readonly Database_control db = new Database_control();
+       
         public Admin_Form()
         {
             InitializeComponent();
@@ -51,9 +52,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void usersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }

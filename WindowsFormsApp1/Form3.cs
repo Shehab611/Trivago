@@ -13,30 +13,42 @@ namespace WindowsFormsApp1
     public partial class Hotel_Page : Form
     {
         readonly Database_control db = new Database_control();
-        public Hotel_Page()
+        User_in_DataBase user;
+        public Hotel_Page(User_in_DataBase user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
+      
         private void Form3_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btn_signup_Click(object sender, EventArgs e)
-        {
-            offers.DataSource = db.Show_review(int.Parse(txt_id.Text));
-        }
-
+       
         private void Hotel_Page_FormClosing(object sender, FormClosingEventArgs e)
         {
             var form1 = (login_form)Tag;
             form1.Close();
+        }
+
+        private void Add_offeres_Click(object sender, EventArgs e)
+        {
+
+            if (Txt_price.Text.Length == 0)
+            {
+                MessageBox.Show("Price Can not be empty");
+            }
+            else if (Txt_describtion.Text.Length == 0) 
+            {
+                MessageBox.Show("Description Can not be empty");
+            }
+            else
+            {
+                db.AddOffer(Txt_describtion.Text, int.Parse(Txt_price.Text), user.User_id);
+            }
+            
         }
     }
 }
