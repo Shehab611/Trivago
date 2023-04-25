@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Hotel_Page : Form
     {
+        readonly Database_control db = new Database_control();
         public Hotel_Page()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace WindowsFormsApp1
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
-
+            offers.DataSource = db.Show_review(int.Parse(txt_id.Text));
         }
 
         private void Hotel_Page_FormClosing(object sender, FormClosingEventArgs e)
