@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         //gemi connection string
         static string ordb2 = @"User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
 
-        private OracleConnection conn=new OracleConnection(ordb);
+        private OracleConnection conn=new OracleConnection(ordb1);
 
         private string cnststr;
         private string cmdstr;
@@ -35,19 +35,18 @@ namespace WindowsFormsApp1
         public bool CheckOnLogin(string email, string password)
 
         {
-
-            conn.Open();
+             conn.Open();
             try
             {
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "select email,pass,role_id from userss where email =:email";
+                cmd.CommandText = "select pass from userss where email =:email";
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add("email", email);
 
                 OracleDataReader dr = cmd.ExecuteReader();
                 if (dr.Read()) {
-                    if (dr[1].ToString() == password)
+                    if (dr[0].ToString() == password)
                     {
                         dr.Close();
                         cmd.Cancel();
@@ -79,12 +78,13 @@ namespace WindowsFormsApp1
             conn.Open();
             cmd.Connection = conn;
             cmd.Connection = conn;
-            cmd.CommandText = "select role_id from userss where email =:email";
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("email", email);
-            OracleDataReader dr = cmd.ExecuteReader();
-            dr.Read();
-            int x = int.Parse(dr[0].ToString());
+            cmd.CommandText = "get_user_role";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("user_email", email);
+            cmd.Parameters.Add("user_role_id", OracleDbType.Int64,ParameterDirection.Output);
+            cmd.ExecuteNonQuery();
+           
+            int x = int.Parse(cmd.Parameters["user_role_id"].Value.ToString());
             cmd.Cancel();
             conn.Close();
             return x;
@@ -265,6 +265,8 @@ namespace WindowsFormsApp1
             return description;
             conn.Close();
         }
+
+        //add offer
     }
   
 
