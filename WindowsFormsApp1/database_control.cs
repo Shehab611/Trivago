@@ -278,22 +278,36 @@ namespace WindowsFormsApp1
             return dataSet.Tables["Reviews"];
         }
 
-        public void AddOffer(String describtion,int price,int hotel_id)
+        public void AddOffer(string describtion,int price,int userid)
         {
-            //error
-           // insert into offers values(offers_id_seq.nextval,'2 room',1500,2,1);
+           
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
-            cmd.CommandText = "insert into offers values(offers_id_seq.nextval,:desc,:price,:hotel_id,0)";
+            cmd.CommandText = "insert into offers values(offers_id_seq.nextval,:descr,:price,:hotel_id,0)";
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("desc", describtion);
+            cmd.Parameters.Add("descr", describtion);
             cmd.Parameters.Add("price", price);
-            cmd.Parameters.Add("hotel_id", hotel_id);
+           cmd.Parameters.Add("hotel_id", GetHotelID(userid));
        
             int r = cmd.ExecuteNonQuery();
             cmd.Cancel();
             conn.Close();
+        }
+
+        public string GetHotelID(int user_id) {
+            
+            OracleCommand cmd = new OracleCommand();
+            
+            cmd.Connection = conn;
+            cmd.CommandText = "select hotel_id  from hotel where user_id =:user_id";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("user_id", user_id);
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            String x = dr[0].ToString();
+            
+            return x;
         }
     }
   
