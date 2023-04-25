@@ -1,4 +1,6 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using ExCSS;
+using Oracle.ManagedDataAccess.Client;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,7 +37,8 @@ namespace WindowsFormsApp1
         public bool CheckOnLogin(string email, string password)
 
         {
-             conn.Open();
+            // Select rows from DB using bind variables and command parameters
+            conn.Open();
             try
             {
                 OracleCommand cmd = new OracleCommand();
@@ -74,6 +77,8 @@ namespace WindowsFormsApp1
 
         public int GetRole(string email)
         {
+            //Select ONE row from DB using stored Procedures (Without using SysRefCursor) [use out
+            //parameters of Number data type]
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -192,7 +197,7 @@ namespace WindowsFormsApp1
 
         public void AddUser(User_in_DataBase user_In_DataBase)
         {
-            
+            //Insert rows (Without using Procedures)
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
