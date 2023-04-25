@@ -227,16 +227,26 @@ namespace WindowsFormsApp1
             conn.Close();
 
         }
-
+      
+        OracleDataAdapter useradapter ;
+        DataSet userdataSet = new DataSet();
         public DataTable GetAllUsers()
         {
+
             string cmdstr = "select * from userss";
-            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            return dataSet.Tables[0];
+            useradapter = new OracleDataAdapter(cmdstr, ordb1);
+          
+          
+            useradapter.Fill(userdataSet);
+            return userdataSet.Tables[0];
         }
 
+        public void UpdateUserData()
+        {
+            //Update using oracle command builder
+            OracleCommandBuilder builder = new OracleCommandBuilder(useradapter);
+            useradapter.Update(userdataSet.Tables[0]);
+        }
         public DataTable GetPendingOffers()
         {
             OracleCommand cmd = new OracleCommand();

@@ -46,6 +46,9 @@ namespace WindowsFormsApp1
 
         }
 
-       
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            db.UpdateUserData();
+        }
     }
 }

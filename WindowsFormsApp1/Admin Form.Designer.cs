@@ -33,10 +33,7 @@ namespace WindowsFormsApp1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AllUsersTab = new System.Windows.Forms.TabPage();
-            this.deleteBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
-            this.userIdLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.usersGrid = new System.Windows.Forms.DataGridView();
             this.pendingOffersTab = new System.Windows.Forms.TabPage();
             this.pendingOffersGrid = new System.Windows.Forms.DataGridView();
@@ -65,10 +62,7 @@ namespace WindowsFormsApp1
             // 
             // AllUsersTab
             // 
-            this.AllUsersTab.Controls.Add(this.deleteBtn);
             this.AllUsersTab.Controls.Add(this.updateBtn);
-            this.AllUsersTab.Controls.Add(this.userIdLabel);
-            this.AllUsersTab.Controls.Add(this.textBox1);
             this.AllUsersTab.Controls.Add(this.usersGrid);
             this.AllUsersTab.Location = new System.Drawing.Point(4, 22);
             this.AllUsersTab.Name = "AllUsersTab";
@@ -79,39 +73,15 @@ namespace WindowsFormsApp1
             this.AllUsersTab.UseVisualStyleBackColor = true;
             this.AllUsersTab.Click += new System.EventHandler(this.AllUsersTab_Click);
             // 
-            // deleteBtn
-            // 
-            this.deleteBtn.Location = new System.Drawing.Point(373, 278);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
-            this.deleteBtn.TabIndex = 4;
-            this.deleteBtn.Text = "delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(280, 277);
+            this.updateBtn.Location = new System.Drawing.Point(284, 292);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(75, 23);
             this.updateBtn.TabIndex = 3;
             this.updateBtn.Text = "update";
             this.updateBtn.UseVisualStyleBackColor = true;
-            // 
-            // userIdLabel
-            // 
-            this.userIdLabel.AutoSize = true;
-            this.userIdLabel.Location = new System.Drawing.Point(31, 283);
-            this.userIdLabel.Name = "userIdLabel";
-            this.userIdLabel.Size = new System.Drawing.Size(38, 13);
-            this.userIdLabel.TabIndex = 2;
-            this.userIdLabel.Text = "user id";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(82, 280);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
-            this.textBox1.TabIndex = 1;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // usersGrid
             // 
@@ -174,7 +144,6 @@ namespace WindowsFormsApp1
             this.Load += new System.EventHandler(this.Admin_Form_Load);
             this.tabControl1.ResumeLayout(false);
             this.AllUsersTab.ResumeLayout(false);
-            this.AllUsersTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGrid)).EndInit();
             this.pendingOffersTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pendingOffersGrid)).EndInit();
@@ -188,10 +157,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TabPage AllUsersTab;
         private System.Windows.Forms.TabPage pendingOffersTab;
         private System.Windows.Forms.DataGridView usersGrid;
-        private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button updateBtn;
-        private System.Windows.Forms.Label userIdLabel;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView pendingOffersGrid;
         private System.Windows.Forms.TabPage tabPage1;
         private DataGridViewTextBoxColumn actionButtons;
