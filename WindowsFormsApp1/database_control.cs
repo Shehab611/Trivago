@@ -29,11 +29,8 @@ namespace WindowsFormsApp1
 
         private OracleConnection conn=new OracleConnection(ordb1);
 
-        private string cnststr;
-        private string cmdstr;
-        OracleDataAdapter adapter;
-        OracleCommandBuilder builder;
-        DataSet dataSet;
+      
+       
         public bool CheckOnLogin(string email, string password)
 
         {
@@ -128,6 +125,7 @@ namespace WindowsFormsApp1
             }
             return user;
         }
+
         public bool CheckIfEmailExist(string email)
         {
 
@@ -234,41 +232,53 @@ namespace WindowsFormsApp1
 
         }
 
-        public DataTable getAllUsers()
+        public DataTable GetAllUsers()
         {
-            cnststr = "User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
-            cmdstr = "select * from userss";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
-            dataSet = new DataSet();
+           string cmdstr = "select * from userss";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb2);
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
 
-        public DataTable getPendingOffers()
-        {   
-            cmdstr = "select * from USERSS";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
-            dataSet = new DataSet();
+        public DataTable GetPendingOffers()
+        {
+            string cmdstr = "select * from USERSS";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb2);
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
         //
-        public  String Show_review(int Hotel_id)
+        public DataTable Show_review(int Hotel_id)
         {
-            
             OracleCommand cmd = new OracleCommand();
             conn.Open();
-            cmd.CommandText = "DESCRIBTION_info";
+            cmd.Connection = conn;
+            cmd.CommandText = "get_Reviews";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@p_Hotel_id", 123); // Replace "123" with the actual hotel ID
-            // Create an out parameter for the description
-            SqlParameter outParameter = new SqlParameter("@DESCRIBTION_P", SqlDbType.VarChar, 255); // Replace "255" with the maximum length of the description column
-            outParameter.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(outParameter);
-            cmd.ExecuteNonQuery();
-            string description = (string)outParameter.Value;
-            return description;
+            cmd.Parameters.Add("pro_hotel_id", Hotel_id);
+            cmd.Parameters.Add("describtion", OracleDbType.RefCursor, ParameterDirection.Output);
+            DataSet dataSet = new DataSet();
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable customers = dataSet.Tables.Add("Reviews");
+            customers.Columns.Add("Review_ID");
+            customers.Columns.Add("Review");
+
+
+            int i = 0;
+            while (dr.Read())
+            {
+                i++;
+                customers.Rows.Add(i, dr[0].ToString());
+
+            }
+
+
+
+            cmd.Cancel();
             conn.Close();
+            return dataSet.Tables["Reviews"];
         }
 
         //add offer

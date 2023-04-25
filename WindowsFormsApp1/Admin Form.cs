@@ -31,11 +31,11 @@ namespace WindowsFormsApp1
         {
             if(tabControl1.SelectedTab == AllUsersTab)
             {
-                usersGrid.DataSource =  db.getAllUsers();
+                usersGrid.DataSource =  db.GetAllUsers();
             }
             else if (tabControl1.SelectedTab == pendingOffersTab)
             {
-                pendingOffersGrid.DataSource = db.getPendingOffers();      
+                pendingOffersGrid.DataSource = db.GetPendingOffers();      
             }
 
         }
