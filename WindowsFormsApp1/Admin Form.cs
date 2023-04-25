@@ -25,19 +25,13 @@ namespace WindowsFormsApp1
 
         private void Admin_Form_Load(object sender, EventArgs e)
         {
-            
+            usersGrid.DataSource = db.GetAllUsers();
+            pendingOffersGrid.DataSource = db.GetPendingOffers();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedTab == AllUsersTab)
-            {
-                usersGrid.DataSource =  db.GetAllUsers();
-            }
-            else if (tabControl1.SelectedTab == pendingOffersTab)
-            {
-                pendingOffersGrid.DataSource = db.GetPendingOffers();      
-            }
+           
 
         }
 
