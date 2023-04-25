@@ -251,7 +251,7 @@ namespace WindowsFormsApp1
         }
         //
         public DataTable Show_review(int Hotel_id)
-        {
+        {//Select multiple rows from DB using stored procedures.
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
