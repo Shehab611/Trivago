@@ -75,6 +75,7 @@ namespace WindowsFormsApp1
             this.AllUsersTab.Padding = new System.Windows.Forms.Padding(3);
             this.AllUsersTab.Size = new System.Drawing.Size(796, 431);
             this.AllUsersTab.TabIndex = 0;
+            this.AllUsersTab.Text = "All Users";
             this.AllUsersTab.UseVisualStyleBackColor = true;
             this.AllUsersTab.Click += new System.EventHandler(this.AllUsersTab_Click);
             // 
