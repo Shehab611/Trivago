@@ -230,8 +230,8 @@ namespace WindowsFormsApp1
 
         public DataTable GetAllUsers()
         {
-           string cmdstr = "select * from userss";
-            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb2);
+            string cmdstr = "select * from userss";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
@@ -239,11 +239,29 @@ namespace WindowsFormsApp1
 
         public DataTable GetPendingOffers()
         {
-            string cmdstr = "select * from USERSS";
-            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb2);
+            OracleCommand cmd = new OracleCommand();
+            conn.Open();
+            cmd.Connection = conn;
+            cmd.CommandText = "select describtion,price,hotel_id from offers where state='0'";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
             DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            return dataSet.Tables[0];
+            DataTable offers = dataSet.Tables.Add("Pending Offers");
+            offers.Columns.Add("Offer ID");
+            offers.Columns.Add("Hotel Name");
+            offers.Columns.Add("Offer Describtion");
+            offers.Columns.Add("Offer Price");
+            int i = 0;
+            while (dr.Read())
+            {
+                i++;
+                offers.Rows.Add(i, GetHotelName(int.Parse(dr[2].ToString())), dr[0].ToString(), dr[1].ToString());
+
+            }
+
+            cmd.Cancel();
+            conn.Close();
+            return dataSet.Tables["Pending Offers"];
         }
        
         public DataTable Show_review(int Hotel_id)
@@ -309,6 +327,21 @@ namespace WindowsFormsApp1
             
             return x;
         }
+        public string GetHotelName(int hotel_id)
+        {
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select name  from hotel where hotel_id =:hotel_id";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("hotel_id", hotel_id);
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            String x = dr[0].ToString();
+
+            return x;
+        }
+
     }
   
 
