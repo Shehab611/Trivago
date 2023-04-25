@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AllUsersTab = new System.Windows.Forms.TabPage();
             this.deleteBtn = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace WindowsFormsApp1
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(804, 457);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Tag = "";
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // AllUsersTab
@@ -71,11 +72,10 @@ namespace WindowsFormsApp1
             this.AllUsersTab.Controls.Add(this.usersGrid);
             this.AllUsersTab.Location = new System.Drawing.Point(4, 22);
             this.AllUsersTab.Name = "AllUsersTab";
-            this.AllUsersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.AllUsersTab.Padding = new System.Windows.Forms.Padding(3);
             this.AllUsersTab.Size = new System.Drawing.Size(796, 431);
             this.AllUsersTab.TabIndex = 0;
             this.AllUsersTab.UseVisualStyleBackColor = true;
-            this.AllUsersTab.UseWaitCursor = true;
             this.AllUsersTab.Click += new System.EventHandler(this.AllUsersTab_Click);
             // 
             // deleteBtn
@@ -86,7 +86,6 @@ namespace WindowsFormsApp1
             this.deleteBtn.TabIndex = 4;
             this.deleteBtn.Text = "delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.UseWaitCursor = true;
             // 
             // updateBtn
             // 
@@ -96,7 +95,6 @@ namespace WindowsFormsApp1
             this.updateBtn.TabIndex = 3;
             this.updateBtn.Text = "update";
             this.updateBtn.UseVisualStyleBackColor = true;
-            this.updateBtn.UseWaitCursor = true;
             // 
             // userIdLabel
             // 
@@ -106,7 +104,6 @@ namespace WindowsFormsApp1
             this.userIdLabel.Size = new System.Drawing.Size(38, 13);
             this.userIdLabel.TabIndex = 2;
             this.userIdLabel.Text = "user id";
-            this.userIdLabel.UseWaitCursor = true;
             // 
             // textBox1
             // 
@@ -114,26 +111,24 @@ namespace WindowsFormsApp1
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(142, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.UseWaitCursor = true;
             // 
             // usersGrid
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.usersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersGrid.Location = new System.Drawing.Point(0, 0);
             this.usersGrid.Name = "usersGrid";
             this.usersGrid.RowHeadersWidth = 51;
             this.usersGrid.Size = new System.Drawing.Size(791, 263);
             this.usersGrid.TabIndex = 0;
-            this.usersGrid.UseWaitCursor = true;
             // 
             // pendingOffersTab
             // 
             this.pendingOffersTab.Controls.Add(this.pendingOffersGrid);
             this.pendingOffersTab.Location = new System.Drawing.Point(4, 22);
             this.pendingOffersTab.Name = "pendingOffersTab";
-            this.pendingOffersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.pendingOffersTab.Padding = new System.Windows.Forms.Padding(3);
             this.pendingOffersTab.Size = new System.Drawing.Size(796, 431);
             this.pendingOffersTab.TabIndex = 1;
             this.pendingOffersTab.Text = "Pending Offers";
@@ -152,7 +147,7 @@ namespace WindowsFormsApp1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(796, 431);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Users Activity";
