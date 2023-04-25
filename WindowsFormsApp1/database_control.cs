@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Windows.ApplicationModel.UserActivities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsFormsApp1
@@ -29,9 +30,10 @@ namespace WindowsFormsApp1
 
         private OracleConnection conn=new OracleConnection(ordb1);
 
+        // Select rows from DB using bind variables and command parameters
         public bool CheckOnLogin(string email, string password)
         {
-            // Select rows from DB using bind variables and command parameters
+            
             conn.Open();
             try
             {
@@ -69,10 +71,11 @@ namespace WindowsFormsApp1
 
         }
 
+        //Select ONE row from DB using stored Procedures (Without using SysRefCursor) [use out
+        //parameters of Number data type]
         public int GetRole(string email)
         {
-            //Select ONE row from DB using stored Procedures (Without using SysRefCursor) [use out
-            //parameters of Number data type]
+            
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -190,9 +193,10 @@ namespace WindowsFormsApp1
 
         }
 
+        //Insert rows (Without using Procedures)
         public void AddUser(User_in_DataBase user_In_DataBase)
         {
-            //Insert rows (Without using Procedures)
+            
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -212,7 +216,7 @@ namespace WindowsFormsApp1
         }
 
         public void AddUserActivity(int user_id) {
-            //insert into user_activity values(users_activity_id_seq.nextval,'15/9/2022 12:00','cairo',1);
+            
 
             OracleCommand cmd = new OracleCommand();
             conn.Open();
@@ -241,12 +245,14 @@ namespace WindowsFormsApp1
             return userdataSet.Tables[0];
         }
 
+        //Update using oracle command builder
         public void UpdateUserData()
         {
-            //Update using oracle command builder
+           
             OracleCommandBuilder builder = new OracleCommandBuilder(useradapter);
             useradapter.Update(userdataSet.Tables[0]);
         }
+
         public DataTable GetPendingOffers()
         {
             OracleCommand cmd = new OracleCommand();
@@ -273,10 +279,10 @@ namespace WindowsFormsApp1
             conn.Close();
             return dataSet.Tables["Pending Offers"];
         }
-       
+
+        //Select multiple rows from DB using stored procedures.
         public DataTable Show_review(int Hotel_id)
-        {//Select multiple rows from DB using stored procedures.
-            
+        { 
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -352,6 +358,111 @@ namespace WindowsFormsApp1
             return x;
         }
 
+        //Select certain rows for a given value entered by the user on the form
+        public DataTable GetAllOneUserActivty(string user_phone)
+        {
+            OracleCommand cmd = new OracleCommand();
+            OracleCommand cmd1 = new OracleCommand();
+           
+            conn.Open();
+            cmd.Connection = conn;
+            cmd.CommandText = "select user_id from userss where phone=:phone";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("phone",user_phone);
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            string user_idd = dr[0].ToString();
+            cmd1.Connection = conn;
+            cmd1.CommandText = "select * from user_activity where user_id=:userr_id";
+            cmd1.CommandType = CommandType.Text;
+            cmd1.Parameters.Add("userr_id", user_idd);
+            OracleDataReader dr1 = cmd1.ExecuteReader();
+            DataSet dataSet = new DataSet();
+            DataTable offers = dataSet.Tables.Add("Users Activities");
+            offers.Columns.Add("Activity ID");
+            offers.Columns.Add("User Name");
+            offers.Columns.Add("Time of Login");
+            offers.Columns.Add("City");
+
+            int i = 0;
+            while (dr1.Read())
+            {
+
+                i++;
+                offers.Rows.Add(i, GetUsersData(dr1[3].ToString()).F_name + " " + GetUsersData(dr1[3].ToString()).L_name, dr1[1].ToString(), dr1[2].ToString());
+
+            }
+
+            cmd.Cancel();
+            cmd1.Cancel();
+            conn.Close();
+            return dataSet.Tables["Users Activities"];
+        }
+
+
+        public DataTable GetAllUsersActivty()
+        {
+            OracleCommand cmd = new OracleCommand();
+            conn.Open();
+            cmd.Connection = conn;
+            cmd.CommandText = "select* from user_activity";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataSet dataSet = new DataSet();
+            DataTable offers = dataSet.Tables.Add("Users Activities");
+            offers.Columns.Add("Activity ID");
+            offers.Columns.Add("User Name");
+            offers.Columns.Add("Time of Login");
+            offers.Columns.Add("City");
+            
+            int i = 0;
+            while (dr.Read())
+            {
+                
+                i++;
+                offers.Rows.Add(i, GetUsersData(dr[3].ToString()).F_name + " " + GetUsersData(dr[3].ToString()).L_name, dr[1].ToString(), dr[2].ToString());
+
+            }
+
+            cmd.Cancel();
+            conn.Close();
+            return dataSet.Tables["Users Activities"];
+        }
+
+        public User_in_DataBase GetUsersData(string user_id)
+        {
+            User_in_DataBase user = new User_in_DataBase();
+           
+            try
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select * from userss where user_id =:user_id";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("user_id", user_id);
+                OracleDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                user.User_id = int.Parse(dr[0].ToString());
+                user.Ssn = dr[1].ToString();
+                user.Email = dr[2].ToString();
+                user.Pass = dr[3].ToString();
+                user.F_name = dr[4].ToString();
+                user.L_name = dr[5].ToString();
+                user.Role_id = int.Parse(dr[6].ToString());
+                user.Phone = dr[7].ToString();
+               
+
+                return user;
+            }
+            catch (Exception)
+            {
+
+
+               
+
+            }
+            return user;
+        }
     }
   
 
