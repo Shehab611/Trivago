@@ -27,6 +27,8 @@ namespace WindowsFormsApp1
         {
             usersGrid.DataSource = db.GetAllUsers();
             pendingOffersGrid.DataSource = db.GetPendingOffers();
+            All_users_activity_grid.DataSource = db.GetAllUsersActivty();
+           
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,6 +51,21 @@ namespace WindowsFormsApp1
         private void updateBtn_Click(object sender, EventArgs e)
         {
             db.UpdateUserData();
+        }
+
+        private void btn_search_user_Click(object sender, EventArgs e)
+        {
+
+            if (txt_phone.Text.Length == 0) {
+
+                MessageBox.Show("You Must Enter phone Number!!");
+            }
+            else
+            {
+              specific_user_activty.DataSource = db.GetAllOneUserActivty(txt_phone.Text);
+            }
+
+           
         }
     }
 }
