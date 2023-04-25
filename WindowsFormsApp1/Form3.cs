@@ -47,6 +47,7 @@ namespace WindowsFormsApp1
             else
             {
                 db.AddOffer(Txt_describtion.Text, int.Parse(Txt_price.Text), user.User_id);
+                MessageBox.Show("Offer Added Successfully");
             }
             
         }
