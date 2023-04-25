@@ -466,14 +466,6 @@ namespace WindowsFormsApp1
     }
   
 
-
-
-
-
-
-
-
-
     public class User_in_DataBase
     {
         private int role_id,user_id;
