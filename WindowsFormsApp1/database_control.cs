@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
     internal class Database_control
         
     {
+
     //mohand connection string
         static string ordb = @"Data source=localhost:1521/orcl;User Id=scott;Password=tiger;";
         //shehab connection string
@@ -31,6 +32,7 @@ namespace WindowsFormsApp1
         private OracleConnection conn=new OracleConnection(ordb1);
 
         // Select rows from DB using bind variables and command parameters
+
         public bool CheckOnLogin(string email, string password)
         {
             
@@ -57,7 +59,7 @@ namespace WindowsFormsApp1
                 cmd.Cancel();
                 conn.Close();
                 return false;
-                
+
 
 
             }
@@ -196,7 +198,7 @@ namespace WindowsFormsApp1
         //Insert rows (Without using Procedures)
         public void AddUser(User_in_DataBase user_In_DataBase)
         {
-            
+
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -255,6 +257,7 @@ namespace WindowsFormsApp1
 
         public DataTable GetPendingOffers()
         {
+
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
@@ -463,6 +466,57 @@ namespace WindowsFormsApp1
 
             }
             return user;
+
+        }
+
+        public DataTable getAllOffers()
+        {
+            cnststr = "User Id=scott;Password=tiger;Data Source=localhost:1521/orcl";
+            cmdstr = "select * from offers";
+            adapter = new OracleDataAdapter(cmdstr, cnststr);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+        
+        public DataTable getFavOffers(int userId)
+        {
+            cnststr = "User Id=scott;Password=tiger;Data Source=localhost:1521/orcl";
+            cmdstr = "select describtion, price from offers, user_fav WHERE user_id =: userId";
+            adapter = new OracleDataAdapter(cmdstr, cnststr);
+            adapter.SelectCommand.Parameters.Add("userId", userId);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            return dataSet.Tables[0];
+
+        }
+
+        public void addFavourite(int offerId, int userId)
+        {
+            //insert into user_fav (fav_id, user_id, offer_id) values (users_fav_id_seq.nextval ,3,4);
+            OracleCommand cmd = new OracleCommand();
+            conn.Open();
+            cmd.Connection = conn;
+            cmd.Connection = conn;
+            cmd.CommandText = "insert into user_fav values (users_fav_id_seq.nextval ,:userId,:offerId)";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("userId", userId);
+            cmd.Parameters.Add("offerId", offerId);
+            cmd.ExecuteNonQuery();
+            cmd.Cancel();
+            conn.Close();
+        }
+
+        public DataTable filterByMaxPrice(int maxPrice)
+        {
+            cnststr = "User Id=scott;Password=tiger;Data Source=localhost:1521/orcl";
+            cmdstr = "select * from offers where price <= :maxPrice";
+            adapter = new OracleDataAdapter(cmdstr, cnststr);
+            adapter.SelectCommand.Parameters.Add("maxPrice", maxPrice);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            return dataSet.Tables[0];
+
         }
     }
   
@@ -529,6 +583,7 @@ namespace WindowsFormsApp1
             this.ssn = ssn;
 
         }
+
     }
 
 }
