@@ -14,19 +14,19 @@ namespace WindowsFormsApp1
 {
     public partial class signup_form : Form
     {
-        Database_control database_Control = new Database_control();
+        readonly Database_control database_Control = new Database_control();
         public signup_form()
         {
             InitializeComponent();
         }
 
-        private void btn_go_page_3_Click(object sender, EventArgs e)
+        private void Btn_go_page_3_Click(object sender, EventArgs e)
         {
             pnl_login_info.Width = pnl_main.Width;
             line2.BackColor = Color.FromArgb(59, 249, 81);
         }
 
-        private void btn_go_page_2_Click(object sender, EventArgs e)
+        private void Btn_go_page_2_Click(object sender, EventArgs e)
         {
             pnl_address.Width = pnl_main.Width;
             pnl_personal_info.Width = pnl_login_info.Width = 0;
@@ -34,13 +34,11 @@ namespace WindowsFormsApp1
             line2.BackColor = Color.FromArgb(167, 167, 167);
         }
 
-        private void btn_finish_Click(object sender, EventArgs e)
+        private void Btn_finish_Click(object sender, EventArgs e)
         {
             bool isEmailExist = database_Control.CheckIfEmailExist(txt_email_signup.Text);
             bool isPhoneExist = database_Control.CheckIfPhoneExist(txt_phone.Text);
-            bool isEmail = false;
-
-
+            bool isEmail;
             try
             {
                 MailAddress m = new MailAddress(txt_email_signup.Text);
@@ -119,18 +117,24 @@ namespace WindowsFormsApp1
 
 
             }
+            else
+            {
+                MessageBox.Show("The Email is Not Valid!!\nPlease Enter a Valid one", "Opps!!!");
 
 
+
+
+            }
         }
 
-        private void btn_prsonal_info_Click(object sender, EventArgs e)
+        private void Btn_prsonal_info_Click(object sender, EventArgs e)
         {
             pnl_address.Width = pnl_login_info.Width = 0;
             line1.BackColor = line2.BackColor = Color.FromArgb(167, 167, 167);
 
         }
 
-        private void btn_address_Click(object sender, EventArgs e)
+        private void Btn_address_Click(object sender, EventArgs e)
         {
             pnl_address.Width = pnl_main.Width;
             pnl_personal_info.Width = pnl_login_info.Width = 0;
@@ -138,23 +142,23 @@ namespace WindowsFormsApp1
             line2.BackColor = Color.FromArgb(167, 167, 167);
         }
 
-        private void btn_login_info_Click(object sender, EventArgs e)
+        private void Btn_login_info_Click(object sender, EventArgs e)
         {
             pnl_login_info.Width = pnl_main.Width;
             line2.BackColor = Color.FromArgb(59, 249, 81);
         }
 
-        private void picBox_visabilty_pass_Click(object sender, EventArgs e)
+        private void PicBox_visabilty_pass_Click(object sender, EventArgs e)
         {
             txt_pass_signup.UseSystemPasswordChar = !txt_pass_signup.UseSystemPasswordChar;
         }
 
-        private void picBox_visabilty_pass_conf_Click(object sender, EventArgs e)
+        private void PicBox_visabilty_pass_conf_Click(object sender, EventArgs e)
         {
             txt_pass_conf_signup.UseSystemPasswordChar = !txt_pass_conf_signup.UseSystemPasswordChar;
         }
 
-        private void signup_form_FormClosing(object sender, FormClosingEventArgs e)
+        private void Signup_form_FormClosing(object sender, FormClosingEventArgs e)
         {
             var form1 = (login_form)Tag;
             form1.Show();

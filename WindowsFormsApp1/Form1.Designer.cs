@@ -103,6 +103,7 @@
             this.panel_login.Name = "panel_login";
             this.panel_login.Size = new System.Drawing.Size(575, 540);
             this.panel_login.TabIndex = 13;
+            this.panel_login.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_login_Paint);
             // 
             // label1
             // 
@@ -120,7 +121,7 @@
             this.panel1.Controls.Add(this.picBox_visabilty);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.txt_password);
-            this.panel1.Location = new System.Drawing.Point(9, 271);
+            this.panel1.Location = new System.Drawing.Point(6, 271);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(563, 46);
             this.panel1.TabIndex = 13;
@@ -153,9 +154,9 @@
             this.panel_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
             this.panel_email.Controls.Add(this.pictureBox2);
             this.panel_email.Controls.Add(this.txt_email);
-            this.panel_email.Location = new System.Drawing.Point(6, 206);
+            this.panel_email.Location = new System.Drawing.Point(6, 202);
             this.panel_email.Name = "panel_email";
-            this.panel_email.Size = new System.Drawing.Size(566, 46);
+            this.panel_email.Size = new System.Drawing.Size(563, 50);
             this.panel_email.TabIndex = 11;
             // 
             // pictureBox2
@@ -190,7 +191,7 @@
             this.signUp_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
             this.signUp_panel.Location = new System.Drawing.Point(575, 0);
             this.signUp_panel.Name = "signUp_panel";
-            this.signUp_panel.Size = new System.Drawing.Size(468, 540);
+            this.signUp_panel.Size = new System.Drawing.Size(453, 540);
             this.signUp_panel.TabIndex = 14;
             // 
             // btn_signup
@@ -224,7 +225,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.label3.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
-            this.label3.Location = new System.Drawing.Point(52, 206);
+            this.label3.Location = new System.Drawing.Point(49, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(394, 74);
             this.label3.TabIndex = 16;
@@ -234,12 +235,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 540);
+            this.ClientSize = new System.Drawing.Size(1028, 540);
             this.Controls.Add(this.signUp_panel);
             this.Controls.Add(this.panel_login);
             this.Name = "login_form";
             this.Text = "Login";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.login_form_FormClosed);
             this.panel_login.ResumeLayout(false);
             this.panel_login.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     public partial class Admin_Form : Form
     {
         readonly Database_control db = new Database_control();
+       
         public Admin_Form()
         {
             InitializeComponent();
@@ -24,24 +25,15 @@ namespace WindowsFormsApp1
 
         private void Admin_Form_Load(object sender, EventArgs e)
         {
-            
+            usersGrid.DataSource = db.GetAllUsers();
+            pendingOffersGrid.DataSource = db.GetPendingOffers();
+            All_users_activity_grid.DataSource = db.GetAllUsersActivty();
+           
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedTab == AllUsersTab)
-            {
-                string cnststr = "User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
-                string cmdstr = "select * from userss";
-                OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, cnststr);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                usersGrid.DataSource =  dataSet.Tables[0];
-            }
-            else if (tabControl1.SelectedTab == pendingOffersTab)
-            {
-                pendingOffersGrid.DataSource = db.getPendingOffers();      
-            }
+           
 
         }
 
@@ -49,6 +41,31 @@ namespace WindowsFormsApp1
         {
             var form1 = (login_form)Tag;
            form1.Close();
+        }
+
+        private void AllUsersTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            db.UpdateUserData();
+        }
+
+        private void btn_search_user_Click(object sender, EventArgs e)
+        {
+
+            if (txt_phone.Text.Length == 0) {
+
+                MessageBox.Show("You Must Enter phone Number!!");
+            }
+            else
+            {
+              specific_user_activty.DataSource = db.GetAllOneUserActivty(txt_phone.Text);
+            }
+
+           
         }
     }
 }
