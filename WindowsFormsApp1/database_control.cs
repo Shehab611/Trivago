@@ -471,21 +471,21 @@ namespace WindowsFormsApp1
 
         public DataTable getAllOffers()
         {
-            cnststr = "User Id=scott;Password=tiger;Data Source=localhost:1521/orcl";
-            cmdstr = "select * from offers";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
-            dataSet = new DataSet();
+          
+            string cmdstr = "select * from offers";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
         }
         
         public DataTable getFavOffers(int userId)
         {
-            cnststr = "User Id=scott;Password=tiger;Data Source=localhost:1521/orcl";
-            cmdstr = "select describtion, price from offers, user_fav WHERE user_id =: userId";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
+           
+            string cmdstr = "select describtion, price from offers, user_fav WHERE user_id =: userId";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
             adapter.SelectCommand.Parameters.Add("userId", userId);
-            dataSet = new DataSet();
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
 
@@ -509,11 +509,11 @@ namespace WindowsFormsApp1
 
         public DataTable filterByMaxPrice(int maxPrice)
         {
-            cnststr = "User Id=scott;Password=tiger;Data Source=localhost:1521/orcl";
-            cmdstr = "select * from offers where price <= :maxPrice";
-            adapter = new OracleDataAdapter(cmdstr, cnststr);
+         
+            string cmdstr = "select * from offers where price <= :maxPrice";
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
             adapter.SelectCommand.Parameters.Add("maxPrice", maxPrice);
-            dataSet = new DataSet();
+            DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
 
