@@ -281,14 +281,15 @@ namespace WindowsFormsApp1
         }
 
         //Select multiple rows from DB using stored procedures.
-        public DataTable Show_review(int Hotel_id)
+        public DataTable Show_review(int user_id)
         { 
             OracleCommand cmd = new OracleCommand();
             conn.Open();
             cmd.Connection = conn;
             cmd.CommandText = "get_Reviews";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("pro_hotel_id", Hotel_id);
+
+            cmd.Parameters.Add("pro_hotel_id", GetHotelID(user_id));
             cmd.Parameters.Add("describtion", OracleDbType.RefCursor, ParameterDirection.Output);
             DataSet dataSet = new DataSet();
             OracleDataReader dr = cmd.ExecuteReader();
