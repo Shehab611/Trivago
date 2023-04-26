@@ -36,6 +36,13 @@ namespace WindowsFormsApp1
                         {
 
                             //navigate to Customer Form
+                            CustomerForm form2 = new CustomerForm
+                            {
+                                Tag = this
+                            };
+
+                            form2.Show();
+                            Hide();
                             break;
                         }
                     case 1:
@@ -87,6 +94,9 @@ namespace WindowsFormsApp1
             Hide();
         }
 
-    
+        private void login_form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
     }
 }

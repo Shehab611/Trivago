@@ -578,7 +578,6 @@
             this.Name = "signup_form";
             this.Text = "Sign Up";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.signup_form_FormClosing);
-            this.Load += new System.EventHandler(this.signup_form_Load);
             this.panel1.ResumeLayout(false);
             this.pnl_main.ResumeLayout(false);
             this.pnl_personal_info.ResumeLayout(false);

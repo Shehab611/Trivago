@@ -161,10 +161,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void signup_form_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void pnl_personal_info_Paint(object sender, PaintEventArgs e)
         {
