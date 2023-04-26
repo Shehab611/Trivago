@@ -25,11 +25,11 @@ namespace WindowsFormsApp1
     //mohand connection string
         static string ordb = @"Data source=localhost:1521/orcl;User Id=scott;Password=tiger;";
         //shehab connection string
-        static string ordb1 = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
+       // static string ordb1 = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
         //gemi connection string
-        static string ordb2 = @"User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
+        //static string ordb2 = @"User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
 
-        private OracleConnection conn=new OracleConnection(ordb1);
+        private OracleConnection conn=new OracleConnection(ordb);
 
         // Select rows from DB using bind variables and command parameters
 
@@ -240,7 +240,7 @@ namespace WindowsFormsApp1
         {
 
             string cmdstr = "select * from userss";
-            useradapter = new OracleDataAdapter(cmdstr, ordb1);
+            useradapter = new OracleDataAdapter(cmdstr, ordb);
           
           
             useradapter.Fill(userdataSet);
@@ -473,7 +473,7 @@ namespace WindowsFormsApp1
         {
           
             string cmdstr = "select * from offers";
-            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
@@ -483,7 +483,7 @@ namespace WindowsFormsApp1
         {
            
             string cmdstr = "select describtion, price from offers, user_fav WHERE user_id =: userId";
-            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb);
             adapter.SelectCommand.Parameters.Add("userId", userId);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
@@ -511,7 +511,7 @@ namespace WindowsFormsApp1
         {
          
             string cmdstr = "select * from offers where price <= :maxPrice";
-            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb1);
+            OracleDataAdapter adapter = new OracleDataAdapter(cmdstr, ordb);
             adapter.SelectCommand.Parameters.Add("maxPrice", maxPrice);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
