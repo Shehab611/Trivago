@@ -51,5 +51,10 @@ namespace WindowsFormsApp1
             }
             
         }
+
+        private void all_reviews_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.Show_review(user.User_id);
+        }
     }
 }
