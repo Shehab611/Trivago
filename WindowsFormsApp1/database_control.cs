@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Windows.ApplicationModel.UserActivities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsFormsApp1
@@ -21,13 +20,8 @@ namespace WindowsFormsApp1
     internal class Database_control
         
     {
-
-    //mohand connection string
         static string ordb = @"Data source=localhost:1521/orcl;User Id=scott;Password=tiger;";
-        //shehab connection string
-       // static string ordb1 = @"Data source=localhost:1521/xe;User Id=scott;Password=tiger;";
-        //gemi connection string
-        //static string ordb2 = @"User Id=team132;Password=team132;Data Source=localhost:1521/orcl";
+        
 
         private OracleConnection conn=new OracleConnection(ordb);
 

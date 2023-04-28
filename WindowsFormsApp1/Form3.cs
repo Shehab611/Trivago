@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Hotel_Page : Form
+    public partial class Hotel_Form : Form
     {
         readonly Database_control db = new Database_control();
         User_in_DataBase user;
-        public Hotel_Page(User_in_DataBase user)
+        public Hotel_Form(User_in_DataBase user)
         {
             InitializeComponent();
             this.user = user;

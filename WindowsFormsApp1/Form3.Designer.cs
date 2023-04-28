@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Hotel_Page
+    partial class Hotel_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -155,7 +155,7 @@
             this.all_reviews.UseVisualStyleBackColor = false;
             this.all_reviews.Click += new System.EventHandler(this.all_reviews_Click);
             // 
-            // Hotel_Page
+            // Hotel_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,7 +168,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Hotel_Page";
+            this.Name = "Hotel_Form";
             this.Text = "Form3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hotel_Page_FormClosing);
             this.Load += new System.EventHandler(this.Form3_Load);

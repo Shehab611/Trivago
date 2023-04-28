@@ -15,9 +15,11 @@ namespace WindowsFormsApp1
     public partial class CustomerForm : Form
     {
         Database_control db = new Database_control();
-        public CustomerForm()
+        User_in_DataBase user;
+        public CustomerForm(User_in_DataBase user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void CustomerForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -33,21 +35,26 @@ namespace WindowsFormsApp1
         
         private void ShwFavouriteBTN_Click(object sender, EventArgs e)
         {
-            int userId = int.Parse(idText.Text.ToString());
-            dataGridView1.DataSource = db.getFavOffers(userId);
+           
+            dataGridView1.DataSource = db.getFavOffers(user.User_id);
         }
 
         private void AddFavouriteBTN_Click(object sender, EventArgs e)
         {
-            int userId = int.Parse(idText.Text.ToString());
+           
             int favId = int.Parse(favIdText.Text.ToString());
-            db.addFavourite(favId, userId);
+            db.addFavourite(favId, user.User_id);
         }
 
         private void FilterBTN_Click(object sender, EventArgs e)
         {
             int maxPrice = int.Parse(textBox1.Text.ToString());
             dataGridView1.DataSource = db.filterByMaxPrice(maxPrice);
+        }
+
+        private void btn_show_all_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.getAllOffers();
         }
     }
 

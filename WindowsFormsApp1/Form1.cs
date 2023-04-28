@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
                         {
 
                             //navigate to Customer Form
-                            CustomerForm form2 = new CustomerForm
+                            CustomerForm form2 = new CustomerForm(user)
                             {
                                 Tag = this
                             };
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
                         }
                     case 2:
                         {
-                            Hotel_Page form2 = new Hotel_Page(user)
+                            Hotel_Form form2 = new Hotel_Form(user)
                             {
                                 Tag = this
                             };
