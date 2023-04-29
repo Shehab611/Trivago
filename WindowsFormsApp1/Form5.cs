@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form5 : Form
     {
-        CrystalReport2 CR2;
+        CrystalReport2 crystalReport2;
         public Form5()
         {
             InitializeComponent();
@@ -21,18 +21,10 @@ namespace WindowsFormsApp1
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            CR2 = new CrystalReport2();
-            foreach (ParameterDiscreteValue v in CR2.ParameterFields[0].DefaultValues)
-                comboBox1.Items.Add(v.Value);
+            crystalReport2 = new CrystalReport2();
+            crystalReportViewer1.ReportSource = crystalReport2;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CR2.SetParameterValue(0, comboBox1.Text); //comboBox Text
-            CR2.SetParameterValue(1, textBox2.Text); //TextBox Text
-
-            crystalReportViewer1.ReportSource = CR2;
-        }
-
+        
     }
 }

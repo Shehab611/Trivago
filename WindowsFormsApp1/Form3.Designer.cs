@@ -38,6 +38,7 @@
             this.Add_offeres = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.all_reviews = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -136,9 +137,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(677, 11);
+            this.dataGridView1.Location = new System.Drawing.Point(607, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(330, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(393, 156);
             this.dataGridView1.TabIndex = 14;
             // 
             // all_reviews
@@ -147,7 +148,7 @@
             this.all_reviews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.all_reviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.all_reviews.ForeColor = System.Drawing.Color.Black;
-            this.all_reviews.Location = new System.Drawing.Point(771, 334);
+            this.all_reviews.Location = new System.Drawing.Point(730, 189);
             this.all_reviews.Name = "all_reviews";
             this.all_reviews.Size = new System.Drawing.Size(166, 40);
             this.all_reviews.TabIndex = 15;
@@ -155,12 +156,27 @@
             this.all_reviews.UseVisualStyleBackColor = false;
             this.all_reviews.Click += new System.EventHandler(this.all_reviews_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(688, 293);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 40);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "See Pending Offers";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Hotel_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1012, 401);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.all_reviews);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Add_offeres);
@@ -194,5 +210,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button all_reviews;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -34,11 +34,10 @@
             this.FilterBTN = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
             this.minPriceLabel = new System.Windows.Forms.Label();
-            this.ShwFavouriteBTN = new System.Windows.Forms.Button();
             this.AddFavouriteBTN = new System.Windows.Forms.Button();
             this.favIdText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_show_all = new System.Windows.Forms.Button();
+            this.btn_show_offers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -106,18 +105,6 @@
             this.minPriceLabel.TabIndex = 7;
             this.minPriceLabel.Text = "by maximum price";
             // 
-            // ShwFavouriteBTN
-            // 
-            this.ShwFavouriteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.ShwFavouriteBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShwFavouriteBTN.Location = new System.Drawing.Point(148, 274);
-            this.ShwFavouriteBTN.Name = "ShwFavouriteBTN";
-            this.ShwFavouriteBTN.Size = new System.Drawing.Size(125, 33);
-            this.ShwFavouriteBTN.TabIndex = 8;
-            this.ShwFavouriteBTN.Text = "Show Favourites";
-            this.ShwFavouriteBTN.UseVisualStyleBackColor = false;
-            this.ShwFavouriteBTN.Click += new System.EventHandler(this.ShwFavouriteBTN_Click);
-            // 
             // AddFavouriteBTN
             // 
             this.AddFavouriteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
@@ -148,29 +135,28 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Offer Id";
             // 
-            // btn_show_all
+            // btn_show_offers
             // 
-            this.btn_show_all.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btn_show_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_all.Location = new System.Drawing.Point(9, 274);
-            this.btn_show_all.Name = "btn_show_all";
-            this.btn_show_all.Size = new System.Drawing.Size(125, 33);
-            this.btn_show_all.TabIndex = 14;
-            this.btn_show_all.Text = "Show All Offers";
-            this.btn_show_all.UseVisualStyleBackColor = false;
-            this.btn_show_all.Click += new System.EventHandler(this.btn_show_all_Click);
+            this.btn_show_offers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btn_show_offers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_offers.Location = new System.Drawing.Point(776, 238);
+            this.btn_show_offers.Name = "btn_show_offers";
+            this.btn_show_offers.Size = new System.Drawing.Size(125, 36);
+            this.btn_show_offers.TabIndex = 14;
+            this.btn_show_offers.Text = "Show All Offers";
+            this.btn_show_offers.UseVisualStyleBackColor = false;
+            this.btn_show_offers.Click += new System.EventHandler(this.btn_show_offers_Click);
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(798, 458);
-            this.Controls.Add(this.btn_show_all);
+            this.ClientSize = new System.Drawing.Size(937, 458);
+            this.Controls.Add(this.btn_show_offers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.favIdText);
             this.Controls.Add(this.AddFavouriteBTN);
-            this.Controls.Add(this.ShwFavouriteBTN);
             this.Controls.Add(this.minPriceLabel);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.FilterBTN);
@@ -196,10 +182,9 @@
         private System.Windows.Forms.Button FilterBTN;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label minPriceLabel;
-        private System.Windows.Forms.Button ShwFavouriteBTN;
         private System.Windows.Forms.Button AddFavouriteBTN;
         private System.Windows.Forms.TextBox favIdText;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_show_all;
+        private System.Windows.Forms.Button btn_show_offers;
     }
 }

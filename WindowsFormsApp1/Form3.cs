@@ -56,5 +56,11 @@ namespace WindowsFormsApp1
         {
             dataGridView1.DataSource = db.Show_review(user.User_id);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form frm2 = new Form6();
+            frm2.ShowDialog();
+        }
     }
 }
