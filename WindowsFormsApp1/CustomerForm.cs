@@ -30,14 +30,10 @@ namespace WindowsFormsApp1
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.getAllOffers();
-        }
-        
-        private void ShwFavouriteBTN_Click(object sender, EventArgs e)
-        {
-           
             dataGridView1.DataSource = db.getFavOffers(user.User_id);
         }
+        
+       
 
         private void AddFavouriteBTN_Click(object sender, EventArgs e)
         {
@@ -52,9 +48,10 @@ namespace WindowsFormsApp1
             dataGridView1.DataSource = db.filterByMaxPrice(maxPrice);
         }
 
-        private void btn_show_all_Click(object sender, EventArgs e)
+        private void btn_show_offers_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.getAllOffers();
+            Form frm2 = new Form4();
+            frm2.ShowDialog();
         }
     }
 

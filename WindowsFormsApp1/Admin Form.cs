@@ -27,7 +27,6 @@ namespace WindowsFormsApp1
         {
             usersGrid.DataSource = db.GetAllUsers();
             pendingOffersGrid.DataSource = db.GetPendingOffers();
-            All_users_activity_grid.DataSource = db.GetAllUsersActivty();
            
         }
 
@@ -66,6 +65,12 @@ namespace WindowsFormsApp1
             }
 
            
+        }
+
+        private void btn_genrate_activities_Click(object sender, EventArgs e)
+        {
+            Form frm2 = new Form5();
+            frm2.ShowDialog();
         }
     }
 }
