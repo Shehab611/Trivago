@@ -81,5 +81,23 @@ namespace WindowsFormsApp1
             frm.Dock = DockStyle.Fill;
             tabControl1.TabPages[0].Controls.Add(frm);
         }
+
+        private void btn_report1_Click(object sender, EventArgs e)
+        {
+            Form frm2 = new Form4();
+            frm2.ShowDialog();
+        }
+
+        private void btn_report2_Click(object sender, EventArgs e)
+        {
+            Form frm2 = new Form5();
+            frm2.ShowDialog();
+        }
+
+        private void btn_report3_Click(object sender, EventArgs e)
+        {
+            Form frm2 = new Form6();
+            frm2.ShowDialog();
+        }
     }
 }
